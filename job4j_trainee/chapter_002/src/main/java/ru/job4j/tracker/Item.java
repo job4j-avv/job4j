@@ -37,7 +37,7 @@ public class Item implements Comparable<Item> {
      * Сравнивает id приводя их в числовой вид.
      *
      * @param item сравниваемый Item
-     * @return
+     * @return int число меньше нуля, ноль, больше нуля.
      */
     @Override
     public int compareTo(Item item) {
