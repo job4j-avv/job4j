@@ -1,9 +1,9 @@
-#Sat Jul 06 11:11:59 MSK 2019
-configuration*?=DB52D3BE02A3C4C47C10F34CE0011BE67B617C24
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/firuges/Checker.java=1560449688779
-/DATA/Project/job4j/puzzle/src/test/java/ru/job4j/puzzle/LogicTest.java=1560842126983
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/firuges/Figure.java=1560449688779
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/firuges/Cell.java=1562400440309
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/Logic.java=1562400611281
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/Puzzle.java=1560490666285
-/DATA/Project/job4j/puzzle/src/main/java/ru/job4j/puzzle/firuges/Block.java=1560449688779
+#Fri Jul 17 06:56:58 MSK 2020
+configuration*?=07019584363FBCC7728C326B5FA7E0DC4DEEDDFA
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/firuges/Cell.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/Puzzle.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/firuges/Figure.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/Logic.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/test/java/ru/job4j/puzzle/LogicTest.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/firuges/Block.java=1586943970160
+/DATA/Project/4GitHub/job4j/job4j_trainee/puzzle/src/main/java/ru/job4j/puzzle/firuges/Checker.java=1586943970160
