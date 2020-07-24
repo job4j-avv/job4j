@@ -1,5 +1,6 @@
 package collection;
 
+import collection.user.User;
 import org.junit.Test;
 
 import java.util.Iterator;
