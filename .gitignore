@@ -5,6 +5,7 @@ job4j_trainee/deploy.sh
 job4j_trainee/chapter_002/target/**
 job4j_trainee/chapter_001/target/**
 job4j_trainee/target/**
+**/target
 
 # Compiled class file
 *.class
