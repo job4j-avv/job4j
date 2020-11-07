@@ -6,38 +6,24 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     /**
-     * Добавляет пользователя в систему и привязывает к нему аккаунт.
-     *
-     * @param user Пользователь.
-     * @param account Аккаунт пользователя.
-     */
-    public void addUser(User user, Account account) {
-        users.putIfAbsent(user, null);
-        User userFinded = findByPassport(user.getPassport());
-        addAccount(userFinded, account);
-    }
-
-    /**
      * Добавляет нового пользователя в систему. Будет создан пустой список аккаунтов.
      *
      * @param user Пользователь.
      */
     public void addUser(User user) {
-        this.addUser(user, null);
+        List<Account> listAcc = new ArrayList<>();
+        users.putIfAbsent(user, listAcc);
     }
 
     /**
      * Привязывает аккаунт к пользователю.
      *
-     * @param user Пользователь.
+     * @param user    Пользователь.
      * @param account Аккаунт.
      */
     public void addAccount(User user, Account account) {
         if (user != null) {
             List<Account> accounts = users.get(user);
-            if (accounts == null) {
-                accounts = new ArrayList<>();
-            }
             if (account != null) {
                 accounts.add(account);
                 users.replace(user, accounts);
@@ -49,11 +35,13 @@ public class BankService {
      * Привязывает аккаунт к пользователю, который указан по его паспортным данным.
      *
      * @param passport Данные Пользователя.
-     * @param account Аккаунт.
+     * @param account  Аккаунт.
      */
     public void addAccount(String passport, Account account) {
         User user = this.findByPassport(passport);
-        addAccount(user, account);
+        if (user != null) {
+            addAccount(user, account);
+        }
     }
 
     /**
@@ -74,8 +62,7 @@ public class BankService {
     }
 
     /**
-     *
-     * @param passport Паспорт пользователя.
+     * @param passport  Паспорт пользователя.
      * @param requisite Реквизиты аккаунта.
      * @return Найденный аккаунт
      */
@@ -96,11 +83,11 @@ public class BankService {
     /**
      * Осуществляет операцию перевода средств со счета одного пользователя на счет другого.
      *
-     * @param srcPassport паспорт пользователя со счета которого переводятся средства
-     * @param srcRequisite реквизиты пользователя со счета которого переводятся средства
-     * @param destPassport паспорт пользователя на счет которого переводятся средства
+     * @param srcPassport   паспорт пользователя со счета которого переводятся средства
+     * @param srcRequisite  реквизиты пользователя со счета которого переводятся средства
+     * @param destPassport  паспорт пользователя на счет которого переводятся средства
      * @param dеstRequisite реквизиты пользователя на счет которого переводятся средства
-     * @param amount сумма перевода
+     * @param amount        сумма перевода
      * @return Флаг - прошла ли операция успешно.
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,

@@ -1,7 +1,5 @@
 .gitignore
-job4j_trainee/.idea
-job4j_trainee/checkstyle.xml
-job4j_trainee/deploy.sh
+.idea/
 
 **/target
 
