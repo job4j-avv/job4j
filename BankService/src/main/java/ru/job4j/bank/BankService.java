@@ -24,7 +24,7 @@ public class BankService {
     public void addAccount(User user, Account account) {
         if (user != null) {
             List<Account> accounts = users.get(user);
-            if (account != null) {
+            if (account != null && !accounts.contains(account)) {
                 accounts.add(account);
                 users.replace(user, accounts);
             }
@@ -39,9 +39,7 @@ public class BankService {
      */
     public void addAccount(String passport, Account account) {
         User user = this.findByPassport(passport);
-        if (user != null) {
-            addAccount(user, account);
-        }
+        addAccount(user, account);
     }
 
     /**
@@ -54,7 +52,7 @@ public class BankService {
         Iterator iterator = users.keySet().iterator();
         while (iterator.hasNext()) {
             User user = (User) iterator.next();
-            if (passport.equals(user.getPassport())) {
+            if (user != null && passport.equals(user.getPassport())) {
                 return user;
             }
         }
@@ -69,7 +67,7 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         final Account[] findedAccount = {null};
         users.forEach((user, accountList) -> {
-            if (passport.equals(user.getPassport()) && accountList != null) {
+            if (user != null && passport.equals(user.getPassport()) && accountList != null) {
                 accountList.forEach(account -> {
                     if (requisite.equals(account.getRequisite())) {
                         findedAccount[0] = account;
@@ -86,15 +84,15 @@ public class BankService {
      * @param srcPassport   паспорт пользователя со счета которого переводятся средства
      * @param srcRequisite  реквизиты пользователя со счета которого переводятся средства
      * @param destPassport  паспорт пользователя на счет которого переводятся средства
-     * @param dеstRequisite реквизиты пользователя на счет которого переводятся средства
+     * @param destRequisite реквизиты пользователя на счет которого переводятся средства
      * @param amount        сумма перевода
      * @return Флаг - прошла ли операция успешно.
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dеstRequisite, double amount) {
+                                 String destPassport, String destRequisite, double amount) {
         boolean transferSuccessful = false;
         Account sourceAccount = findByRequisite(srcPassport, srcRequisite);
-        Account destinationAccount = findByRequisite(destPassport, dеstRequisite);
+        Account destinationAccount = findByRequisite(destPassport, destRequisite);
         if (sourceAccount != null && destinationAccount != null && amount > 0) {
             double sourceAccountBalance = sourceAccount.getBalance();
             double destinationAccountBalance = destinationAccount.getBalance();

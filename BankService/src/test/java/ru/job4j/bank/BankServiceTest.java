@@ -33,6 +33,16 @@ public class BankServiceTest {
     }
 
     @Test
+    public void addAccountWhenUserNull() {
+        User user = null;
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount("3434", new Account("5546", 150D)); //не будет добавлен
+        Account acc = bank.findByRequisite("3434", "5546");
+        assertNull(acc);
+    }
+
+    @Test
     public void transferMoney() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
