@@ -66,15 +66,18 @@ public class BankService {
      */
     public Account findByRequisite(String passport, String requisite) {
         final Account[] findedAccount = {null};
-        users.forEach((user, accountList) -> {
+        for (Map.Entry<User, List<Account>> entry : users.entrySet()) {
+            User user = entry.getKey();
+            List<Account> accountList = entry.getValue();
             if (user != null && passport.equals(user.getPassport()) && accountList != null) {
-                accountList.forEach(account -> {
+                for (int i = 0; i < accountList.size(); i++) {
+                    Account account = accountList.get(i);
                     if (requisite.equals(account.getRequisite())) {
                         findedAccount[0] = account;
                     }
-                });
+                }
             }
-        });
+        }
         return findedAccount[0];
     }
 
